@@ -1,6 +1,7 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import { Link } from '@inertiajs/vue3';
+import { Link } from "@inertiajs/vue3";
+// import route from "vendor/tightenco/ziggy/src/js";
 
 defineProps({
     notes: Array,
@@ -36,10 +37,19 @@ defineProps({
                                         {{ note.excerpt }}
                                     </td>
                                     <td class="px-4 py-2">
-
+                                        <Link
+                                            :href="route('notes.show', note.id)"
+                                        >
+                                            Ver
+                                        </Link>
                                     </td>
-
-
+                                    <td class="px-4 py-2">
+                                        <Link
+                                            :href="route('notes.edit', note.id)"
+                                        >
+                                            Editar
+                                        </Link>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
